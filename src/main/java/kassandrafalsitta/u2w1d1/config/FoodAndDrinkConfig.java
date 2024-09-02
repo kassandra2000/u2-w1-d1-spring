@@ -1,14 +1,12 @@
 package kassandrafalsitta.u2w1d1.config;
 
-import kassandrafalsitta.u2w1d1.entities.Drink;
-import kassandrafalsitta.u2w1d1.entities.Menu;
-import kassandrafalsitta.u2w1d1.entities.Pizza;
-import kassandrafalsitta.u2w1d1.entities.Topping;
+import kassandrafalsitta.u2w1d1.entities.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Configuration
 public class FoodAndDrinkConfig {
@@ -44,7 +42,6 @@ public class FoodAndDrinkConfig {
 
     //Pizze
     @Bean(name = "Margherita Pizza")
-    @Scope("prototype")
     public Pizza getMargheritaPizza() {
         Pizza margherita = new Pizza("Margherita", 6.00, 700);
         margherita.addTopping(getMozzarella());
@@ -72,6 +69,34 @@ public class FoodAndDrinkConfig {
 
     }
 
+    //Pizze XL
+    @Bean(name = "Margherita Pizza")
+    public Pizza getMargheritaPizzaXl() {
+        Pizza margherita = new Pizza("Margherita XL", 10.00, 1400);
+        margherita.addTopping(getMozzarella());
+        margherita.addTopping(getTomato());
+        return margherita;
+    }
+
+    @Bean(name = "Hawaiian Pizza")
+    public Pizza getHawaiianPizzaXl() {
+        Pizza hawaiian = new Pizza("Hawaiian Xl", 10.00, 1400);
+        hawaiian.addTopping(getMozzarella());
+        hawaiian.addTopping(getTomato());
+        hawaiian.addTopping(getHam());
+        hawaiian.addTopping(getPineapple());
+        return hawaiian;
+    }
+
+    @Bean(name = "Salami Pizza")
+    public Pizza getSalamiPizzaXl() {
+        Pizza salami = new Pizza("Salami Xl", 10.00, 1400);
+        salami.addTopping(getMozzarella());
+        salami.addTopping(getTomato());
+        salami.addTopping(getSalami());
+        return salami;
+    }
+
     //Bevande
     @Bean(name = "Coca-Cola")
     public Drink getCocaCola() {
@@ -96,7 +121,13 @@ public class FoodAndDrinkConfig {
     //Menù
     @Bean(name = "Menu")
     public Menu getMenu() {
-        return new Menu(List.of(getMargheritaPizza(),getHawaiianPizza(),getSalamiPizza()),List.of(getMozzarella(),getTomato(),getOnion(),getSalami(),getPineapple(),getHam()),List.of(getCocaCola(),getWater(),getLemonade(), getWine()));
+        return new Menu(List.of(getMargheritaPizza(),getHawaiianPizza(),getSalamiPizza()),List.of(getMargheritaPizzaXl(),getHawaiianPizzaXl(),getSalamiPizzaXl()),List.of(getMozzarella(),getTomato(),getOnion(),getSalami(),getPineapple(),getHam()),List.of(getCocaCola(),getWater(),getLemonade(), getWine()));
+    }
+
+    //stampa
+    @Bean(name="print Pizze")
+    public void printPizze(){
+        System.out.println("ciao");
     }
 
 

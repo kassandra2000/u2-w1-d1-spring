@@ -26,6 +26,16 @@ public class U2w1d1Application {
 			System.out.printf("%-10s %-45s %10d %18.2f\n",pizza.getName(),"(" +toppings+")", pizza.getCalories(), pizza.getPrice());
 		});
 
+		System.out.println("\n");
+		System.out.println("Pizzas XL                                                     Calories            Price");
+
+		menu.getPizze().forEach(pizza -> {
+			String toppings = pizza.getToppings().stream()
+					.map(FoodAndDrink::getName)
+					.collect(Collectors.joining(", "));
+			System.out.printf("%-10s %-45s %10d %18.2f\n",pizza.getName(),"(" +toppings+")", pizza.getCalories(), pizza.getPrice());
+		});
+
 		System.out.println("\nToppings                                                      Calories            Price");
 
 		menu.getToppings().forEach(topping ->
@@ -33,10 +43,10 @@ public class U2w1d1Application {
 		);
 
 
-		System.out.println("\nDrinks                                                      Calories            Price");
+		System.out.println("\nDrinks                                                      Calories             Price");
 
 		menu.getDrinks().forEach(drink ->
-				System.out.printf("%-20s %44d %18.2f\n", drink.getName(), drink.getCalories(), drink.getPrice())
+				System.out.printf("%-20s %44d %19.2f\n", drink.getName(), drink.getCalories(), drink.getPrice())
 		);
 	}
 
