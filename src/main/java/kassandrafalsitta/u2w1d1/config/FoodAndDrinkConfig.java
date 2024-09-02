@@ -43,7 +43,7 @@ public class FoodAndDrinkConfig {
     //Pizze
     @Bean(name = "Margherita Pizza")
     public Pizza getMargheritaPizza() {
-        Pizza margherita = new Pizza("Margherita", 6.00, 700);
+        Pizza margherita = new Pizza("Margherita", 5.00, 700);
         margherita.addTopping(getMozzarella());
         margherita.addTopping(getTomato());
         return margherita;
@@ -70,17 +70,17 @@ public class FoodAndDrinkConfig {
     }
 
     //Pizze XL
-    @Bean(name = "Margherita Pizza")
+    @Bean(name = "Margherita Pizza XL")
     public Pizza getMargheritaPizzaXl() {
-        Pizza margherita = new Pizza("Margherita XL", 10.00, 1400);
+        Pizza margherita = new Pizza("Margherita XL", 8.00, 1400);
         margherita.addTopping(getMozzarella());
         margherita.addTopping(getTomato());
         return margherita;
     }
 
-    @Bean(name = "Hawaiian Pizza")
+    @Bean(name = "Hawaiian Pizza XL")
     public Pizza getHawaiianPizzaXl() {
-        Pizza hawaiian = new Pizza("Hawaiian Xl", 10.00, 1400);
+        Pizza hawaiian = new Pizza("Hawaiian Xl", 11.00, 1400);
         hawaiian.addTopping(getMozzarella());
         hawaiian.addTopping(getTomato());
         hawaiian.addTopping(getHam());
@@ -88,9 +88,9 @@ public class FoodAndDrinkConfig {
         return hawaiian;
     }
 
-    @Bean(name = "Salami Pizza")
+    @Bean(name = "Salami Pizza XL")
     public Pizza getSalamiPizzaXl() {
-        Pizza salami = new Pizza("Salami Xl", 10.00, 1400);
+        Pizza salami = new Pizza("Salami Xl", 11.00, 1400);
         salami.addTopping(getMozzarella());
         salami.addTopping(getTomato());
         salami.addTopping(getSalami());
@@ -124,11 +124,7 @@ public class FoodAndDrinkConfig {
         return new Menu(List.of(getMargheritaPizza(),getHawaiianPizza(),getSalamiPizza()),List.of(getMargheritaPizzaXl(),getHawaiianPizzaXl(),getSalamiPizzaXl()),List.of(getMozzarella(),getTomato(),getOnion(),getSalami(),getPineapple(),getHam()),List.of(getCocaCola(),getWater(),getLemonade(), getWine()));
     }
 
-    //stampa
-    @Bean(name="print Pizze")
-    public void printPizze(){
-        System.out.println("ciao");
-    }
+
 
 
 }
